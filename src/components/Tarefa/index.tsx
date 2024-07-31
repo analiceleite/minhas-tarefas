@@ -6,7 +6,7 @@ import * as enums from '../../utils/enums/Tearefa'
 
 import { remover, editar, alteraStatus } from '../../store/reducers/tarefas'
 import TarefaClass from '../../models/Tarefa'
-import { BotaoSalvar } from '../../styles'
+import { Botao, BotaoSalvar } from '../../styles'
 
 type Props = TarefaClass
 
@@ -31,7 +31,6 @@ const Tarefa = ({
   }
 
   function alteraStatusTarefa(evento: ChangeEvent<HTMLInputElement>) {
-    console.log(evento.target.checked)
     dispatch(
       alteraStatus({
         id,
@@ -90,7 +89,7 @@ const Tarefa = ({
           </>
         ) : (
           <>
-            <S.Botao onClick={() => setEstaEditando(true)}>Editar</S.Botao>
+            <Botao onClick={() => setEstaEditando(true)}>Editar</Botao>
             <S.BotaoCancelarRemover onClick={() => dispatch(remover(id))}>
               Remover
             </S.BotaoCancelarRemover>
